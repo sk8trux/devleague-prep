@@ -120,11 +120,20 @@ var c = 11;
 console.log('\naddThenSubtract', a, b, c, '->', addThenSubtract(a, b, c));
 
 /*
-Function - addThenMultiply
-This function takes three Number arguments named by you, then adds the first two arguments together. Then with the sum of that operation multiply it by the third argument. This function also should make use of your previous functions.
+ * Function - addThenMultiply
+ * This function takes three Number arguments named by you, then adds the first
+ * two arguments together. Then with the sum of that operation multiply it by
+ * the third argument. This function also should make use of your previous
+ * functions.
+ *
+ * Store the return of this function to a variable named howMany
+ */
+function addThenMultiply(first, second, third) {
+  return multiply(add(first, second), third);
+}
 
-Store the return of this function to a variable named howMany
-*/
+var howMany = addThenMultiply(1, 2, 3);
+console.log('\naddThenMultiply', 1, 2, 3, '->', howMany);
 
 /*
  * Function - createFullName
@@ -241,8 +250,8 @@ eatFood('Mark', 'Egesdal', 'pizza');
  * makin' Bacon Pancakes..." othewise the message will be "Let it go.... LET IT
  * GOOOOOOoOoOoOo..."
  */
-function repeater(howMany, oldEnough) {
-  for (var i = 0; i < howMany; i++) {
+function repeater(timesToRepeat, oldEnough) {
+  for (var i = 0; i < timesToRepeat; i++) {
     if (oldEnough) {
       console.log('Bacon Pancakes, makin\' Bacon Pancakes');
     } else {
@@ -251,11 +260,9 @@ function repeater(howMany, oldEnough) {
   }
 }
 
-var n = 5;
-console.log('\nrepeater ' + n + ' ' + canDrinkBeer + ':');
-repeater(n, canDrinkBeer);
+console.log('\nrepeater ' + howMany + ' ' + canDrinkBeer + ':');
+repeater(howMany, canDrinkBeer);
 
-n -= 2;
 canDrinkBeer = false;
-console.log('\nrepeater ' + n + ' ' + canDrinkBeer + ':');
-repeater(n, canDrinkBeer);
+console.log('\nrepeater ' + howMany + ' ' + canDrinkBeer + ':');
+repeater(howMany, canDrinkBeer);

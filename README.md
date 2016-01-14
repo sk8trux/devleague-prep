@@ -72,12 +72,11 @@ Better (opinion) shell for Mac (and Linux)
 
 ### Git Bash
 
-* MINGTTL (sp?) is the terminal (select this during install)
+* Git for Windows = MinGW + Git
 
-* MINGW has a version of `bash` which is the shell
+* *Terminal:* Mintty (sp?) is the terminal (**select this during install**)
 
-* The Windows Git install installs this for us
-
+* *Shell:* MYSYS (part of MinGW) has a version of `bash`
 
 
 # 4. Editor

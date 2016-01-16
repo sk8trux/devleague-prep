@@ -6,16 +6,16 @@
 // 4. null
 // 5. undefined
 // 6. NaN
-var notTrue = 10 +'hi';
+var notTrue = 10 + 'hi';
 if (notTrue) {
-  console.log('aaaaaahhh!!!! what happened?!?!?!', notTrue);
+    console.log('aaaaaahhh!!!! what happened?!?!?!', notTrue);
 } else {
-  console.log('Falsy... whew', notTrue);
+    console.log('Falsy... whew', notTrue);
 }
 
 var myName = 'mark';
-for (var i = 0; i < myName.length; i++)
-{
-console.log(myName[i]);
-		//console.log(myName.charAt(i))
-	} var a = 'huh?';
+for (var i = 0; i < myName.length; i++) {
+    console.log(myName[i]);
+    //console.log(myName.charAt(i))
+}
+var a = 'huh?';

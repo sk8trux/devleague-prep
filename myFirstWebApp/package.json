@@ -1,0 +1,7 @@
+{
+  "author": "Mark Egesdal",
+  "dependencies": {
+    "express": "^4.13.3",
+    "serve-static": "^1.10.2"
+  }
+}

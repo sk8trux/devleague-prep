@@ -1,0 +1,6 @@
+{
+  "author": "Mark Egesdal",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}

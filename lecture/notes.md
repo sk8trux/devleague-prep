@@ -26,3 +26,18 @@ git push origin master
 git push
 ```
 
+Tree #2
+
+functions part2:
+
+higher order functions
+anonymous functions
+functions as arguments
+extension: recursion
+
+
+
+functions as values... aka closure
+vars that point to function... aka closure
+
+curl http://github.com/git/git/raw/master/contrib/completion/git-completion.bash -O

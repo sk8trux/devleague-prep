@@ -102,6 +102,13 @@ Uses `git` to sync intelligently with full knowledge of changes
 
 *Create github ssh keys now*
 
+???
+
+## Why is this good for us?
+
+* Don't have to enter your password every time
+
+
 ---
 
 # Questions

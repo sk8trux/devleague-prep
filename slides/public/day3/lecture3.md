@@ -1,27 +1,9 @@
 # Agenda
 
-* Intro
-* Slack request
 * `subl`
-* github + ssh
-* git + github review
 * `function` review
 * `if...else`
-* `Array` and `string` review
-* `for`
 * Exercises
-
----
-
-# Slack request
-
-*(If you are not on Slack... Let us know, and we will remedy that.)*
-
-I will get your names eventually, but if you want to help me out...
-
-**Put up your first name and a pic up on Slack**
-
-(Also, can you put your github URL in the "What I Do" field)
 
 ---
 
@@ -45,83 +27,112 @@ console.log(process.env.PATH);
 
 ---
 
-# Github ssh keys
-
-## What is "public-key" encryption?
-
-* Encrypt with private, decrypt with public
-* Encrypt with public, decrypt with private
-
-> Makes security on the internet possible
-
-## What is ssh?
-
-* Stands for "secure shell"
-* A "cryptographic network protocol"
-
-## What is a shell?
-
-* `bash` or `zshell`
-* Interacts with the computer using text-based input and output
-
-## Why is this good for us?
-
-* Don't have to enter your password every time
-
----
-
 # Toolbox review
 
 * **Language:** JavaScript
 * **CLI (Terminal + Shell):** iTerm + zshell (Mac) or Git Bash (Windows)
-* **Editor (with Linter):** Sublime Text 3
-* **Source Version Control:** Git
-* **Source Repository:** Github
+* **Editor:** Sublime Text 3
+* **Source Code Repository:** Git + GitHub
 * **Runtime:** Node (and later a browser)
 
 ---
 
-# One more: oh-my-zsh
-
-We are going to be spending a lot of time in the shell...
+# Oh-my-zsh
 
 (Plugin system for `zshell`)
 
-But, next time...
+Let's make sure it is installed
 
----
-
-# Git + github review
-
-Push functions file from last time.
+Let's use the theme I created
 
 ---
 
 # `function` review
 
-* Verbs: *call*, *invoke*, *apply*
+Key ideas:
 
+* Our verbs
 * Invoked with values, returns a value
 * Parameters are just variables
-*
+* Functions are also values
+
+???
+
+Verbs: *call*, *invoke*, *apply*
+
+---
+
+# Function scope tree
+
+The functions in a proram create a *tree*, with each node representing a function *scope*.
+
+The root of the tree is the *global scope*.
+
+A function's position in the tree is determined by where the function is *created* (not *called*).
+
+---
+
+# Function environment
+
+All the variables a function can see depending on its position in the scope tree.
+
+All the variables in the scopes along the ancestor path of that function (unless an child scope overwrites with a variable of the same name).
+
+A function retains its environment even when it is passed around as a value.
+
+---
+
+# Functions as values
+
+```
+var fn;
+var result;
+
+fn = myFunc;
+result = fn("bar")
+console.log(result);
+
+function myFunc(myParam) {
+	return "foo" + myParam;
+}
+```
+
+---
+
+# Anonymous functions
+
+ ```
+var fn;
+var result;
+
+fn = function(myParam) {
+  return "foo" + myParam;
+};
+result = fn("bar")
+console.log(result);
+```
 
 ---
 
 # `if...else`
 
-Falsy: https://developer.mozilla.org/en-US/docs/Glossary/Falsy
+* comparisons: `>`, `<`, `===`
+* negate: `!` 
+* combine: `&&`, `||`
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else
 
 ---
 
-# `for`
+# Stuff to be aware of...
 
-Works on:
-* `Array`
-* `string`
+... and avoid whenever possible
 
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
+Losse equality: 
+
+Falsy: https://developer.mozilla.org/en-US/docs/Glossary/Falsy
+
+Actually, falsy-ness has its usefulness...
 
 ---
 
@@ -130,3 +141,18 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
 https://gist.github.com/jaywon/8809f95fbb3c1c1d1c63
 
 1. What is `eat` in the first example?  string or variable name?  If latter, where is it getting set?
+
+
+???
+
+3 buckets:
+* Data
+   * 5 types
+* Logic
+   * var
+   * function
+   * loops
+   * conditional
+* UI
+   * display
+   * events

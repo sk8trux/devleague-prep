@@ -7,6 +7,22 @@
  * Below are some specifications for Functions to be built.
  */
 
+/* ==== Declare variables here ==== */
+
+var a;
+var b;
+var c;
+var sum;
+var difference;
+var product;
+var footballResult;
+var howMany;
+var myFirstName;
+var myLastName;
+var myFullName;
+
+/* ==== END variable declarations === */
+
 /*
  * Declare Two Variables
  *
@@ -17,85 +33,94 @@
  * variable names you will create as they will become input to other functions.
  */
 
-var a = 52;
-var b = 27;
-console.log('a: ' + a);
-console.log('b: ' + b);
+a = 52;
+b = 27;
+console.log('a:', a);
+console.log('b:', b);
 
 /*
  * Function - add
- * This function returns the result of adding a and b together. Store this
- * value in a variable named sum.
+ *
+ * Pretend you have a function called 'add'.
+ * Call this function, passing 'a' and 'b' as arguments.
+ * Store the resulting value into a new variable named 'sum'.
+ * (Remember to declare sum at the top of the file.)
+ * Use the console.log function to print out the sum.
+ *
+ * At the bottom of the file, create a function called 'add' that has two
+ * parameters named 'x' and 'y'.
+ *
+ * Have the function return the result of adding its parameters together.
  */
-function add(x, y) {
-    return x + y;
-}
 
-var sum = add(a, b);
-console.log('\nsum: ' + sum);
-
+sum = add(a, b);
+console.log('sum:', sum);
 
 /*
  * Function - subtract
- * This function returns the result of subtracting b from a Store this value in
- * a variable named difference.
+ *
+ * Repeat the steps for 'add', except:
+ * - name the variable 'difference'
+ * - name the function 'subtract'
+ * - return the result of subtracting the second parameter from the first
  */
-function subtract(x, y) {
-    return x - y;
-}
 
-var difference = subtract(a, b);
 difference = subtract(a, b);
-console.log('\ndifference: ' + difference);
+console.log('difference:', difference);
 
 
 /*
  * Function - multiply
- * This function returns the result of multiplying b by a. Store this value in a
- * variable named product.
+ *
+ * Repeat the steps for 'add', except:
+ * - name the variable 'product'
+ * - name the function 'multiply'
+ * - return the result of multiplying the two parameters together
  */
-function multiply(x, y) {
-    return x * y;
-}
 
-var product = multiply(a, b);
-console.log('\nproduct: ' + product);
+product = multiply(a, b);
+console.log('product:', product);
 
 
 /*
- * Function - checkDifference
- * This function accesses the value stored in the difference variable and uses
- * this number to return the string "My football team lost X times this week",
- * where X is the value stored in difference.
+ * Function - checkFootballResult
+ *
+ * Pretend you have a function named 'checkFootballResult'.
+ * Call this function, passing 'difference' as the argument.
+ * Store the resulting value into a new variable named 'footballResult'.
+ * (Remember to declare new variables at the top of the file.)
+ * Use the console.log function to print out 'footballResult'.
+ *
+ * At the bottom of the file, create a function called 'checkFootballResult'
+ * that has a single parameter named 'numTimesLost'.
+ *
+ * Have the function return the string "My football team lost X times this
+ * week", where X is the value stored in 'numTimesLost'.
  */
-function checkDifference(numTimesLost) {
-    return 'My football team lost ' + numTimesLost + ' times this week';
-}
 
-console.log('\ncheckDifference:');
-
-// N.B. Return values can be passed directly to other functions
-var asdf;
-asdf = checkDifference(difference);
-console.log(checkDifference(difference));
+footballResult = checkFootballResult(difference);
+console.log('footballResult:', footballResult);
 
 /*
  * Function - checkSum
- * This function checks the value stored at sum and uses that number to print to
- * the screen the phrase "I CAN ADDZ X NUMBERS" where X is the value stored in
- * the variable sum .
+ *
+ * Pretend you have a function named 'checkSum'.
+ * Call this function, passing no arguments.
+ *
+ * At the bottom of the file, create a function called 'checkSum'
+ * that has no parameters.
+ *
+ * This function uses console.log to print to the screen the phrase
+ * "I CAN ADDZ NUMBERS TO MAKE X" where X is the value stored in
+ * the variable sum.
+ *
+ * (Remember functions can still "see" variables from the scope that defined
+ * them.)
+ *
+ * There is no return value (i.e. the return value is undefined).
  */
-function checkSum(x) {
-    console.log('I CAN ADDZ ' + (2 * x) + ' NUMBERS');
-    return 4 * x;
-}
 
-checkSumRp = function(x) {
-    return 6 * x;
-};
-console.log('\ncheckSum:');
-checkSumRp(sum);
-checkSum(sum);
+checkSum();
 
 /*
  * Function - checkProduct
@@ -120,11 +145,8 @@ checkProduct(product);
  *
  * example: addThenSubtract(4, 5, 7); //-> returns 2 because 4 + 5 - 7 = 2
  */
-function addThenSubtract(x, y, z) {
-    return subtract(add(x, y), z);
-}
 
-var c = 11;
+c = 11;
 console.log('\naddThenSubtract', a, b, c, '->', addThenSubtract(a, b, c));
 
 /*
@@ -136,11 +158,8 @@ console.log('\naddThenSubtract', a, b, c, '->', addThenSubtract(a, b, c));
  *
  * Store the return of this function to a variable named howMany
  */
-function addThenMultiply(first, second, third) {
-    return multiply(add(first, second), third);
-}
 
-var howMany = addThenMultiply(1, 2, 3);
+howMany = addThenMultiply(1, 2, 3);
 console.log('\naddThenMultiply', 1, 2, 3, '->', howMany);
 
 /*
@@ -159,9 +178,9 @@ function createFullName(firstName, lastName) {
     return firstName + ' ' + lastName;
 }
 
-var myFirstName = 'Marty';
-var myLastName = 'McFly';
-var myFullName = createFullName(myFirstName, myLastName);
+myFirstName = 'Marty';
+myLastName = 'McFly';
+myFullName = createFullName(myFirstName, myLastName);
 
 // log to test...
 // N.B. console.log can take a list and puts a space between value
@@ -187,15 +206,11 @@ var someonesAge = 22;
 var canDrinkBeer = verifyDrinkingAge(someonesAge);
 
 // log to test...
-console.log('\nverifyDrinkingAge', someonesAge, '->', canDrinkBeer);
+console.log('\nverifyDrinkingAge', 22, '->', verifyDrinkingAge(22));
 
-someonesAge -= 1;
-canDrinkBeer = verifyDrinkingAge(someonesAge);
-console.log('\nverifyDrinkingAge', someonesAge, '->', canDrinkBeer);
+console.log('\nverifyDrinkingAge', 21, '->', verifyDrinkingAge(21));
 
-someonesAge -= 1;
-canDrinkBeer = verifyDrinkingAge(someonesAge);
-console.log('\nverifyDrinkingAge', someonesAge, '->', canDrinkBeer);
+console.log('\nverifyDrinkingAge', 20, '->', verifyDrinkingAge(20));
 
 
 /*
@@ -277,3 +292,33 @@ repeater(howMany, canDrinkBeer);
 canDrinkBeer = false;
 console.log('\nrepeater ' + howMany + ' ' + canDrinkBeer + ':');
 repeater(howMany, canDrinkBeer);
+
+/* ==== Declare functions here ==== */
+
+function add(x, y) {
+  return x + y;
+}
+
+function subtract(s, t) {
+  return s - t;
+}
+
+function multiply(r, q) {
+  return r * q;
+}
+
+function addThenSubtract(m, n, o) {
+  return subtract(add(m, n), o);
+}
+
+function addThenMultiply(f, g, h) {
+  return multiply(add(f, g), h);
+}
+
+function checkFootballResult(numTimesLost) {
+    return 'My football team lost ' + numTimesLost + ' times this week';
+}
+
+function checkSum() {
+    console.log('I CAN ADDZ NUMBERS TO MAKE ' + sum);
+}

@@ -22,14 +22,22 @@ Check zshell installation
 
 * `mkdir` work
 * `mv` all completed work so far
-* `git add remote mark`
 * `git status`
-* `git pull mark`
+* `git remote add mark https://github.com/megesdal/devleague-prep`
+* `git pull mark master`
 * `git add work`
 * `git commit -m`
 * `git push`
 
 Push functions file from last time.
+
+???
+
+```bash
+git push origin master
+# OR
+git push
+```
 
 ---
 

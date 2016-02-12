@@ -1,113 +1,83 @@
 # Agenda
 
-* Review
-* `!`, `&&`, and `||`
-* `while` and `break`
-* `else if`
-* closures
-* oh-my-zsh
-* github cleanup
-* Exercises 1
+* `for` review
+* `while`
+* `continue`
+* `Array.filter`
+* Formatting
 * `Object`
-* Exercises 2
+* closures
+* Exercises
 
 ---
 
-# Review
+# `for` Review
 
 You tell me...
 
 Questions (*I love questions*)
 
----
-
-# `!`, `&&`, and `||`
-
-* NOT
-* AND
-* OR
-
-> N.B. left-to-right short circuiting
+Looping as a concept... Why?
 
 ---
 
-# Falsy review
+# `while`
 
-* `''` (type: `string`)
-* `null` (type: `Object`)
-* `0` (type: `number`)
-* `NaN` (type: `number`)
-* `false` (type: `boolean`)
-* `undefined` (type: `undefined`)
+`while(cond)` === `for(;cond;)`
 
-> N.B. `[]` is NOT false... `Array` is actually an `Object`, so its "falsy" value is `null`
+> Lesser known cousin `do...while` always executes once
+
+For our purposes we can just use `for`
 
 ---
 
-# Using `||` to avoid undefined values
+# `continue`
 
+Skip the rest of the loop block and go to the next step...
 
----
+Can make logic flow hard to reason about, but can avoid deep nesting
 
-# `while` and `break`
-
-> Lesser known cousins `do...while` and `continue`
-
----
-
-# `else if`
-
-Mention `if` and `else` without curly braces
-Mention to never do this except for `else if`
-Maybe `break` is okay if on the same line...
+Use sparingly...
 
 ---
 
-# Closures
+# `filter`
 
-Key points:
-* `var` is function scoped
-* avoid global scope as much as possible
-* Nested `functions`
-
-> N.B. Variables are only resolved when their values are needed
-  e.g. clojures inside loops
+(Availability in es5?)
 
 ---
 
-# oh-my-zsh
+# Why loops?
 
-Mac Only
+Why do we need them?
 
-> Windows already has the full path with colors... Thanks, Git Bash :)
-
-* bureau theme
-
-## Why?
-
-* Better visualization of the current directory
-
-## Navigating review
-
-* `..`
-* `/`
-* tab completion
+Do we *need* them?
 
 ---
 
-# github cleanup
+# Formatting
 
+## Block
 
+`{}`
 
----
+Allows us to group multiple statements
 
-# `function` and `for` rewrite
+Blocks get a new indent level (tab, 4 spaces, 2 spaces... just be consistent)
 
-* Use closures and while-loops instead of for-loops and arguments...
+Optional for `for`, `if...else`, but just do it... except...
+
+### `else if`
+
+`else` works without curly braces, but we only take advantage of this with `else if`
+
+Remember the branch tree... It really is a binary tree internally
 
 ---
 
 # Objects
+
+`{}` (but not a block)
 
 Two uses:
 1. Record of structured data
@@ -125,19 +95,67 @@ var myObject =
   keyOfArray: [ 0, 1 ] }
 ```
 
+---
+
+# Properties and Methods
+
+properties are just values that have a label
+
+methods are just properties that are functions
+
+Method examples:
+
+* `console.log`
+* `String.split`
+* `Array.forEach`
+
+---
+
+# Objects and Arrays in Memoryland
+
+---
+
+# Navigating review
+
+* `..`: go "up" a directory (toward the root)
+* `/`: move multiple directories at once
+* tab completion
+* up arrow
+
+---
+
+# Exercises
 
 
 ---
 
-# Environment Variables review
+# Closure Review
 
-process.env is just an Object...
+Closure is a `function` and its environment
+
+(Remember the scope tree)
+
+Be careful: Environment variables are only resolved when their values are
+needed... Be careful about assuming values are locked in place during function
+creation (e.g. during a loop with a counter)
 
 ---
 
-# Properties and member functions
+# Falsy Review
 
-e.g. `string:split` on Path
+* `''` (type: `string`)
+* `null` (type: `Object`)
+* `0` (type: `number`)
+* `NaN` (type: `number`)
+* `false` (type: `boolean`)
+* `undefined` (type: `undefined`)
 
-> N.B. Nested functions are not members
+> N.B. `[]` is NOT false... `Array` is actually an `Object`, so its "falsy" value is `null`
 
+---
+
+# `||` and falsy-ness
+
+Expression resolves to real value and not Boolean (unless real value is a Boolean)
+
+## Tip: Using `||` to avoid undefined values

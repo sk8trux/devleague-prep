@@ -31,22 +31,32 @@ example-1
 bonus: could you take the code inside of this FOR loop and encapsulate it inside of a function called printContent and still achieve the same result? This new function should accept two parameters.
 */
 
-var presidents = ['Washington', 'Adams', 'Jefferson', 'Madison', 'Monroe'];
 
-function printContent(i) {
+printPresidents(['Washington', 'Adams', 'Jefferson', 'Madison', 'Monroe']);
+
+
+function printPresidents(presidents) {
+
+  var i;
+  var president;
+
+  for (i = 0; i < presidents.length; i++) {
+    president = presidents[i];
+    printContent(president, i);
+  }
+
+  // N.B. still set here... how can I get rid of this?
+  console.log(i);
+  console.log(president);
+}
+
+
+// QQQ: If this is inside the other... does it need both params?
+// What if I wanted to use this in a `forEach`?
+function printContent(president, i) {
     console.log('Value of i is: ' + i);
-    console.log('Value at Index is: ' + presidents[i]);
+    console.log('Value at Index is: ' + president);
 }
-
-function printPresidents() {
-    for (var i = 0; i < presidents.length; i++) {
-        //printContent(presidents, i);
-        printContent(i);
-    }
-}
-
-printPresidents();
-
 
 /*
 The String of Numbers
@@ -60,23 +70,43 @@ After the FOR loop, use console.log to inspect your variable. In the end your St
 bonus: could you take the code inside of this FOR loop and encapsulate it inside of a function called appendToString and still achieve the same result?
 */
 
+console.log('createStringOfNumbers       ', createStringOfNumbers(10, 21));
+console.log('createStringOfArrayOfNumbers', createStringOfArrayOfNumbers(10, 21));
+
+
 function createStringOfNumbers(start, end) {
 
-    var stringOfNumbers = '';
+  var stringOfNumbers
+  var i;
 
-    function appendToString(stringToAppend) {
-        presidents.push('Hamilton');
-        stringOfNumbers += stringToAppend;
-    }
+  stringOfNumbers = '';
 
-    for (var i = start; i <= end; ++i) {
-        appendToString(i);
-    }
-    return stringOfNumbers;
+  for (i = start; i <= end; ++i) {
+    stringOfNumbers += i;
+  }
+
+  // why global state is bad...presidents.push('Hamilton');
+  return stringOfNumbers;
 }
 
-var myStringOfNumbers = createStringOfNumbers(10, 21);
-console.log(myStringOfNumbers);
+function createStringOfArrayOfNumbers(start, end) {
+
+  var arrOfNumbers
+  var i;
+
+  arrOfNumbers = [];
+
+  for (i = start; i <= end; ++i) {
+    arrOfNumbers.push(i);
+  }
+
+  return arrOfNumbers.reduce(appendToString, '');
+
+
+  function appendToString(stringBeingBuilt, stringToAdd) {
+    return stringBeingBuilt + stringToAdd;
+  }
+}
 
 
 /*
@@ -87,15 +117,23 @@ Declare a variable named evenNumberArray.
 Use a FOR loop to add only even numbers to an Array. Add 50 even numbers to the evenNumberArray starting with the value 0.
 */
 
-var evenNumberArray = [];
+console.log(createEvenNumberArray(50));
 
-for (var j = 0; j < 99; j++) {
-    if (j % 2 === 0) {
+function createEvenNumberArray(num) {
+
+  var evenNumberArray;
+  var j;
+
+  evenNumberArray = [];
+
+  for (j = 0; j < num * 2; j++) {
+   if (j % 2 === 0) {
         evenNumberArray.push(j);
     }
-}
+  }
 
-console.log(evenNumberArray);
+  return evenNumberArray;
+}
 
 /*
 Accessing only the odd indexes of an Array - 'Not Even Brah'
@@ -160,8 +198,18 @@ Declare a function named nap. This function takes in a single parameter called s
 
 Now, Write a FOR loop that iterates through the napSchedule array and runs the function nap while passing in the value at the current position of napSchedule into the nap function.
 */
-var isNapTime = false;
-var napSchedule = [false, false, true, false, true, true];
+
+var isNapTime;
+var napSchedule;
+var p;
+
+isNapTime = false;
+napSchedule = [false, false, true, false, true, true];
+
+for (p = 0; p < napSchedule.length; p++) {
+    nap(napSchedule[p]);
+}
+
 
 function nap(schedule) {
     if (schedule) {
@@ -172,9 +220,6 @@ function nap(schedule) {
     }
 }
 
-for (var p = 0; p < napSchedule.length; p++) {
-    nap(napSchedule[p]);
-}
 
 /*
 CopyArray - clone array values
@@ -188,19 +233,28 @@ Declare a function named copyArray which takes two arguments: originArray and de
 To get started, below your function declaration, call your function and pass in the two variables, valuesArray and copyOfValuesArray. After that, use console.log to to inspect the values of valuesArray and copyOfValuesArray to make sure they have the same values (which means your function worked!).
 */
 
-var copyOfValuesArray = [];
-var valuesArray = [ 99, 66, 829, 1941, 8, 76 ];
 
-function copyArray(originArray, destinationArray) {
-    for (var i = 0; i < originArray.length; i++) {
-        destinationArray.push(originArray[i]);
-    }
-    return destinationArray;
+var valuesArray;
+
+valuesArray = [ 99, 66, 829, 1941, 8, 76 ];
+
+console.log('copyArray', valuesArray, copyArray(valuesArray));
+
+function copyArray(originalArr) {
+
+  var arrCopy;
+  var i;
+
+  arrCopy = [];
+
+  for (i = 0; i < originalArr.length; i++) {
+      arrCopy.push(originalArr[i]);
+  }
+
+  return arrCopy;
 }
 
-copyArray(valuesArray, copyOfValuesArray);
-console.log(valuesArray);
-console.log(copyOfValuesArray);
+
 
 /*
 
@@ -211,20 +265,33 @@ Declare a variable named miscStorage set it's value to be: [ [], 'Carrots', 9, '
 Declare a function named generateArrayOfStrings which takes a single argument storage. This function returns a new Array with only String values inside of it.
 */
 
-var miscStorage = [ [], 'Carrots', 9, 'Beets', {}, {name: "Todd B."}, 'Mush' ];
+var miscStorage;
+
+miscStorage = [ [], 'Carrots', 9, 'Beets', {}, {name: "Todd B."}, 'Mush' ];
+console.log('filterStrings', generateArrayOfStrings(miscStorage));
 
 function generateArrayOfStrings(storage) {
-    var strStorage = [];
-    for (var i = 0; i < storage.length; i++) {
-        var storedValue = storage[i];
-        if (typeof(storedValue) === 'string') {
+
+    var strStorage;
+    var i;
+    var storedValue;
+
+    strStorage = [];
+    for (i = 0; i < storage.length; i++) {
+        storedValue = storage[i];
+        if (isString(storedValue)) {
             strStorage.push(storedValue);
         }
     }
     return strStorage;
+
+
+    function isString(value) {
+      return typeof(value) === 'string';
+    }
 }
 
-console.log(generateArrayOfStrings(miscStorage));
+
 
 /*
 
@@ -241,7 +308,9 @@ Your function will iterate through the class argument and check each student's e
 If the enrolled property is set to true then change that student's graduated property to true. Otherwise, if enrolled is set to false then change enrolled to true leaving graduated alone and unchanged.
 */
 
-var currentClass = [
+var currentClass;
+
+currentClass = [
   {
     name: 'Doug',
     graduated: false,
@@ -279,17 +348,22 @@ var currentClass = [
   }
 ];
 
-function graduateAndSetNewClass(graduatingClass) {
-    for (var i = 0; i < graduatingClass.length; i++) {
-        var student = graduatingClass[i];
-        if (student.enrolled) {
-            student.graduated = true;
-        } else {
-            student.enrolled = true;
-        }
-    }
-}
-
 console.log(currentClass);
 graduateAndSetNewClass(currentClass);
 console.log(currentClass); // <-- notice the changes
+
+
+function graduateAndSetNewClass(graduatingClass) {
+
+  var i;
+  var student;
+
+  for (i = 0; i < graduatingClass.length; i++) {
+    student = graduatingClass[i];
+    if (student.enrolled) {
+        student.graduated = true;
+    } else {
+        student.enrolled = true;
+    }
+  }
+}

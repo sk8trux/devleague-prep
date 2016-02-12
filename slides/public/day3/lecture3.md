@@ -117,8 +117,10 @@ console.log(result);
 # `if...else`
 
 * comparisons: `>`, `<`, `===`
-* negate: `!` 
-* combine: `&&`, `||`
+* negate: `!` (NOT)
+* combine: `&&` (AND), `||` (OR)
+
+> N.B. left-to-right short circuiting with '&&'
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else
 
@@ -128,7 +130,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if.
 
 ... and avoid whenever possible
 
-Losse equality: 
+Losse equality:
 
 Falsy: https://developer.mozilla.org/en-US/docs/Glossary/Falsy
 

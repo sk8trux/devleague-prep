@@ -110,12 +110,14 @@ function createStringOfArrayOfNumbers(start, end) {
 
 
 /*
-Add only even numbrs to an array
-
-Declare a variable named evenNumberArray.
-
-Use a FOR loop to add only even numbers to an Array. Add 50 even numbers to the evenNumberArray starting with the value 0.
-*/
+ * Add only even numbrs to an array
+ *
+ * Declare a variable named evenNumberArray.
+ *
+ * Use a for-loop to add only even numbers to an Array.
+ *
+ * Add 50 even numbers to the evenNumberArray starting with the value 0.
+ */
 
 console.log(createEvenNumberArray(50));
 
@@ -149,13 +151,16 @@ Example result should look like:
 `[ 'turn' , 'nope' , 'down' , 'nope' , 'for' , 'nope' , 'what' ]`
 */
 
-var oopsArray = ['turn', , 'down', , 'for', , 'what'];
+var oopsArray;
+var k;
 
-for (var k = 0; k < oopsArray.length; k++) {
+oopsArray = ['turn', , 'down', , 'for', , 'what'];
+
+for (k = 0; k < oopsArray.length; k++) {
     if (k % 2 === 1) {
-    //OR using falsy-ness of empty elems: if (!oopsArray[k]) {
+    // OR...
+    // if (!oopsArray[k]) { <-- using falsy-ness of empty elems
         oopsArray[k] = 'nope';
-        console.log('adding nope to', k);
     }
 }
 
@@ -163,23 +168,31 @@ console.log('oopsArray', oopsArray.length, oopsArray);
 
 
 /*
-Going backwards?!
+ * Going backwards?!
+ *
+ * Using a FOR loop, iterate through the Array stored at oopsArray backwards. console.log each value in the Array.
+ *
+ * example output:
+ *
+ * what
+ * nope
+ * for
+ * nope
+ * down
+ * nope
+ * turn
+ */
 
-Using a FOR loop, iterate through the Array stored at oopsArray backwards. console.log each value in the Array.
+console.log('Going backwards...');
+printArrayBackwards(oopsArray);
 
-example output:
+function printArrayBackwards(arr) {
 
-what
-nope
-for
-nope
-down
-nope
-turn
-*/
+  var k;
 
-for (var k = oopsArray.length - 1; k >= 0; k--) {
-    console.log(oopsArray[k]);
+  for (k = arr.length - 1; k >= 0; k--) {
+    console.log(arr[k]);
+  }
 }
 
 /*
@@ -240,6 +253,7 @@ valuesArray = [ 99, 66, 829, 1941, 8, 76 ];
 
 console.log('copyArray', valuesArray, copyArray(valuesArray));
 
+
 function copyArray(originalArr) {
 
   var arrCopy;
@@ -257,13 +271,20 @@ function copyArray(originalArr) {
 
 
 /*
-
-Final Boss: Stage 1 - Only String Values
-
-Declare a variable named miscStorage set it's value to be: [ [], 'Carrots', 9, 'Beets', {}, {name: "Todd B."}, 'Mush' ]
-
-Declare a function named generateArrayOfStrings which takes a single argument storage. This function returns a new Array with only String values inside of it.
-*/
+ *
+ * Final Boss: Stage 1 - Only String Values
+ *
+ * Given: The Array of miscelaneous values stored in the miscStorage varaible.
+ *
+ * Goal: Filter out all of the non-String values from the array
+ *
+ * Create a function to perform this filtering.
+ * This function should take a single parameter, assumed to be an Array.
+ *
+ * Have the function return a new Array with on the String values from the
+ * original Array, preserving order.
+ *
+ */
 
 var miscStorage;
 
@@ -294,19 +315,27 @@ function generateArrayOfStrings(storage) {
 
 
 /*
-
-Final Boss: Final Form - Change values of objects stored within an Array
-
-It's that time again, we need to graduate the current class of students and start enrollment for the next class.
-
-Declare a variable named currentClass and set it's value to be this array found here.
-
-Declare a function named graduateAndSetNewClass, it takes a single argument called class.
-
-Your function will iterate through the class argument and check each student's enrolled property.
-
-If the enrolled property is set to true then change that student's graduated property to true. Otherwise, if enrolled is set to false then change enrolled to true leaving graduated alone and unchanged.
-*/
+ *
+ * Final Boss: Final Form - Change values of objects stored within an Array
+ *
+ * It's that time again, we need to graduate the current class of students and
+ * start enrollment for the next class.
+ *
+ * Given: The Array of the students in the current class stored in the
+ * currentClass variable.  (Students are represented as Objects.)
+ *
+ * Goal: For each student in the class:
+ * - If they are enrolled, change their graduated status to true
+ * - Otherwise, change their enrolled status to true
+ *
+ * Create a function named graduateAndSetNewClass to implement this behavior.
+ * This function should take a single argument, assumed to be an Array of Objects.
+ * Each Object in the Array is assumed to have the following properties:
+ * - name (String)
+ * - graduated (Boolean)
+ * - enrolled (Boolean)
+ *
+ */
 
 var currentClass;
 

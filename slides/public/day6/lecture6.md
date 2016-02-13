@@ -1,22 +1,29 @@
 # `while` exercise
 
 ```javascript
-var starWarsMovies = [ 'anh', 'tesb', 'rotj', 'tpm', 'aotc', 'rots', 'tfa'];
+var starWarsMovies;
+starWarsMovies = [ 'anh', 'tesb', 'rotj', 'tpm', 'aotc', 'rots', 'tfa'];
 
 function sortChronologically() {
-    for (var i = 0; i < 3; i++) {
-        var tmp = starWarsMovies[i];
-        starWarsMovies[i] = starWarsMovies[i + 3];
-        starWarsMovies[i + 3] = tmp;    
-}   }
+  var i;
+  var tmp;
+  for (i = 0; i < 3; i++) {
+    tmp = starWarsMovies[i];
+    starWarsMovies[i] = starWarsMovies[i + 3];
+    starWarsMovies[i + 3] = tmp;    
+  }
+}
 
 function chewie() {
-    for (var i = 0; i < starWarsMovies.length; i++) {
-        if (starWarsMovies[i] === 'tpm' || starWarsMovies[i] === 'aotc') {
-            console.log('Which way to Kashyyyk?');
-        } else {
-            console.log('Laugh it up fuzzball!');
-}   }   }
+  var i;
+  for (i = 0; i < starWarsMovies.length; i++) {
+    if (starWarsMovies[i] === 'tpm' || starWarsMovies[i] === 'aotc') {
+      console.log('Which way to Kashyyyk?');
+    } else {
+      console.log('Laugh it up fuzzball!');
+    }
+  }
+}
 
 chewie();
 sortChronologically();

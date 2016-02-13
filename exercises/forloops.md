@@ -134,6 +134,8 @@ This function should take a single parameter, assumed to be an *Array*.
 Have the function return a new *Array* with only the *String* values from the
 original *Array*, preserving order.
 
+> N.B. You will need to use the builtin `typeof` operator.
+ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
 
 
 # Final Boss: Final Form

@@ -91,8 +91,8 @@ function eatFood( firstName, lastName, food){
 }
 function repeater(){
 	if (canDrinkBeer === false) {
-		'Let if go... LET IT GOOOOOOOOooOOoOo...';
+		return 'Let if go... LET IT GOOOOOOOOooOOoOo...';
 	} else {
-		return 'Bacon Pancakes, making Bacon Pancakes...'
+		return 'Bacon Pancakes, making Bacon Pancakes...';
 	}
 }

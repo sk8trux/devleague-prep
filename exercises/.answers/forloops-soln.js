@@ -315,28 +315,8 @@ function generateArrayOfStrings(storage) {
 
 
 /*
- *
- * Final Boss: Final Form - Change values of objects stored within an Array
- *
- * It's that time again, we need to graduate the current class of students and
- * start enrollment for the next class.
- *
- * Given: The Array of the students in the current class stored in the
- * currentClass variable.  (Students are represented as Objects.)
- *
- * Goal: For each student in the class:
- * - If they are enrolled, change their graduated status to true
- * - Otherwise, change their enrolled status to true
- *
- * Create a function named graduateAndSetNewClass to implement this behavior.
- * This function should take a single argument, assumed to be an Array of Objects.
- * Each Object in the Array is assumed to have the following properties:
- * - name (String)
- * - graduated (Boolean)
- * - enrolled (Boolean)
- *
+ * Final Boss: Final Form
  */
-
 var currentClass;
 
 currentClass = [

@@ -57,81 +57,9 @@ makeCrazyLongString('taco');
 ```
 ​*/
 
-/*
- * Function - greatSummator`
- *
- * Write a function named `greatSummator` that takes in a single argument.
- * Assume this argument is an `Array` with any number of type `Number`.
- * Write a for loop to add all numbers in the `Array` and return the sum.
- */
-
- function greatSummator(arrayOfNumbers) {
-
-   var sum;
-   var i;
-
-   sum = 0;
-   for (i = 0; i < arrayOfNumbers.length; i++) {
-     sum = sum + i;
-   }
-   return sum;
-}
-
-/*
- * `Function - totalUnderWhatFor`
- *
- * Write a function that takes two arguments.
- * Assume the first argument is an `Array` with any number of type `Number`.
- * Assume the second second argument is a `Number`.
- *
- * Return `true` if the sum of all values in the first argument is less than
- * the second argument, otherwise return `false`.
- *
- * N.B. You can use your `greatSummator` function to get the sum!
- */
-
-function totalUnderWhatFor(arrayOfNumbers, total) {
-  return greatSummator(arrayOfNumbers) < total;
-}
-
-/*
- * `Function - checkTrueValues`
- *
- * Write a function that takes a single argument.
- * Assume this argument is an `Array` with any number of type `Boolean`.
- *
- * For each value in the passed in array, call our `isTrue` function.
- * Return true if all of those calls resolve to true, otherwise return false.
- *
- * In other words, if any of the calls to `isTrue` come back false, this
- * function should return false.
- */
-
-function checkTrueValues(arrayOfBools) {
-
-  var i;
-  var result;
-
-  result = true;
-  for (i = 0; i < arrayOfBools.length; i++) {
-    if (!isTrue(arrayOfBools[i])) {
-      result = false;
-      break;
-    }
-  }
-  return result;
-}
 
 /*
  * Function - youGetTaco
- *
- * Write a function that takes a single argument.
- * Assume this argument is `String`.
- *
- * If the value passed into our function is equal to 'eat' have the function
- * return the `String` value `EAT TACOS`.
- *
- * Question: What gets returned if action is not equal to 'eat'?
 ​ */
 
 var myFirstAction;
@@ -151,9 +79,9 @@ function youGetTaco(action) {
 }
 
 /*
-# `Function - isNumberGreaterThan`
-Write a function that takes two variables of type `Number` called `first` and `second`respectively. Return true if the first number is greater than the second.
-​*/
+ * isNumberGreaterThan
+​ */
+
 function isNumberGreaterThan(first, second) {
     return first > second;
     // OR...
@@ -179,14 +107,7 @@ function isTrue(val) {
 }
 
 /*
- * `Function - isFalse`
- *
- * Write a function named `isFalse` with a parameter named `val`.
- * Assume the value that is passed in as `val` is a `Boolean`.
- * Have the function `return` whether the value is false.
- *
- * BONUS: Remove the assumption that val is a `Boolean` and return whether the
- * value is "falsy."
+ * isFalse
 ​ */
 function isFalse(val) {
     // if we care only about truthy-ness
@@ -284,9 +205,7 @@ function showEachValue(characters) {
 }
 
 /*
- * `Function - createArrayFromString`
- *
- * Write a function that takes a single variable of type `String` called `word` and write a `for` loop that creates an `Array` made up of each character in `word` except for `A`. We don't want no stinking A in our Array. Note: You will need to use the `Array.push()` method to complete this function.
+ * createArrayFromString
  */
 
 var words;
@@ -317,4 +236,48 @@ function createArrayFromString(word) {
         }
     }
     return wordCharsSansA;
+}
+
+
+/*
+ * greatSummator
+ */
+ function greatSummator(arrayOfNumbers) {
+
+   var sum;
+   var i;
+
+   sum = 0;
+   for (i = 0; i < arrayOfNumbers.length; i++) {
+     sum = sum + i;
+   }
+   return sum;
+}
+
+
+/*
+ * totalUnderWhatFor
+ */
+function totalUnderWhatFor(arrayOfNumbers, total) {
+  return greatSummator(arrayOfNumbers) < total;
+}
+
+
+/*
+ * checkTrueValues
+ */
+function checkTrueValues(arrayOfBools) {
+
+  var i;
+  var result;
+
+  result = true;
+  for (i = 0; i < arrayOfBools.length; i++) {
+    if (!isTrue(arrayOfBools[i])) {
+      result = false;
+      break;
+      // OR just return false here and return true at the bottom
+    }
+  }
+  return result;
 }
